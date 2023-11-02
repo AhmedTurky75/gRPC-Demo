@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPC_Server.Protos";
+
+service Forcast
+{
+	rpc getName (GetNameRequest) returns (GetNameResponse);
+}
+
+message GetNameRequest{
+	int32 id = 1;
+}
+
+message GetNameResponse{
+	string weather = 1;
+}

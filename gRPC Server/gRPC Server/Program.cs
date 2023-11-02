@@ -1,4 +1,6 @@
 
+using gRPC_Server.Services;
+
 namespace gRPC_Server
 {
 	public class Program
@@ -13,6 +15,12 @@ namespace gRPC_Server
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
+
+
+
+			//gRPC Configuration
+			builder.Services.AddGrpc();
+
 
 			var app = builder.Build();
 
@@ -29,6 +37,13 @@ namespace gRPC_Server
 
 
 			app.MapControllers();
+
+
+
+
+			// Add gRPC Services
+			app.MapGrpcService<ForcastSevice>();
+
 
 			app.Run();
 		}
